@@ -5,7 +5,7 @@ The Linux and the command line may seem like a daunting undertaking initially, b
 
 **1.  Where Am I?! -- The 'pwd' command**
 --------------------------------------
-When you first log into Rosalind it will automatically place you in your home directory.  You can verify this by typing 'pwd', which stands for present working directory on the command prompt as follows:
+When you first log into Rosalind it will automatically place you in your home directory. The phrase yourUsername should be replaced with your Rosalind username. You can verify this by typing 'pwd', which stands for present working directory on the command prompt as follows:
 
 ```
 [yourUsername@cubipmlgn01 ~]$ pwd
@@ -19,7 +19,13 @@ The output should look like this and then give you a new command prompt:
 
 **2.  Changing Directories -- The 'cd' command**
 -----------------------------------------------
-Your home directory has very limited space and can only be viewed by you the user and nobody else. Therefore this space should never be used to upload data or for sharing files with other members within your project group.  Typically, this should only be used to store very small files that only you the user needs or for installing specific software or storing small reference files.  Instead, let's change directories into your shared project space by typing the following:
-
-
-
+Your home directory has very limited space and can only be viewed by you the user and nobody else. Therefore this space should never be used to upload data or for sharing files with other members within your project group.  Typically, this should only be used to store very small files that only you the user needs or for installing specific software or storing small reference files.  Instead, let's change directories into your shared project space on Rosalind.  The phrase "yourProject" should be replaced with the exact name of the project you are approved for on Rosalind and remember, Linux is **ALWAYS CASE SENSITIVE!**
+```
+[yourUsername@cubipmlgn01 ~]$ cd /gpfs/share/yourProject
+```
+To confirm this, you can use the pwd command from above to ensure you are now in your designated project space:
+```
+[yourUsername@cubipmlgn01 ~]$ pwd
+/gpfs/share/yourProject
+[yourUsername@cubipmlgn01 ~]$
+````
