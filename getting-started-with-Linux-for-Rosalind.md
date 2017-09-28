@@ -93,6 +93,6 @@ The first letter, 'd', indicates that Rosalind_Demo is a directory.  The remaini
 ------------------------------------
 Here are some helpful 'best practices' when using Linux.  It will save you some frustrations, until you feel more comforatable with the command line!
 * DO NOT use any kind of whitespace (i.e. no spaces, no tabs, etc...) in the names of files or directories
-* Double-tab after following a command and path can give the user of all the possible autofill options
-* Avoid using the `rm`, 'rm -r' or 'rmdir' unless you are ***100% sure you will never ever need those files and directories again.  Once they are deleted, they are gone forever!***
+* Double-tab following a command and path can give the user a list of all the possible autofill options
+* Avoid using the `rm`, `rm -r` or `rmdir` unless you are ***100% sure you will never ever need those files and directories again.  Once they are deleted, they are gone forever!***
 
