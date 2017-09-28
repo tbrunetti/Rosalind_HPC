@@ -29,7 +29,7 @@ To confirm this, you can use the pwd command from above to ensure you are now in
 /gpfs/share/yourProject
 [yourUsername@cubipmlgn01 ~]$
 ```
-The 'cd' command can also regonize a very useful shortcut.  If you want to move up one directory/folder you can use *..*.  For example if you type in the following:
+The 'cd' command can also regonize a very useful shortcut.  If you want to move up one directory/folder you can use **..**  For example if you type in the following:
 ```
 [yourUsername@cubipmlgn01 ~]$ cd ..
 ```
@@ -44,7 +44,38 @@ To change directories back into your project, you can type the following:
 [yourUsername@cubipmlgn01 ~]$ cd yourProject
 ```
 
+
 **3.  Make a new directory (folder) -- The 'mkdir' command**
 ------------------------------------------------------------
+Now that you are in your project directory you have the ability to create new folders, or in Linux we all them directories. Let's make a new folder called 'Rosalind_Demo'.
+```
+[yourUsername@cubipmlgn01 ~]$ mkdir Rosalind_Demo
+[yourUsername@cubipmlgn01 ~]$
+```
+You have now successfully created a directory called Rosalind_Demo.  You may be wondering how you can tell...well let's move to the next step.  
 
+
+**4.  List all items in a directory -- The 'ls' command**
+----------------------------------------------------------
+The ls command is one of your best friends when using the command line.  ls stands for list segements, and any time you call it, it will list all the items in your present working directory.  For example type the following:
+```
+[yourUsername@cubipmlgn01 ~]$ ls
+```
+It should return the following (assuming you followed the directions above):
+```
+Rosalind_Demo
+[yourUsername@cubipmlgn01 ~]$
+```
+If you have other files or directories in this directory it will list those as well.  Additionally ls has multiple options you can add following the ls command.  One of which that is particular useful is **-lh**  This means long format and human readable.  For example, type in the following:
+```
+[yourUsername@cubipmlgn01 ~]$ ls -lh
+```
+You should see something similar to the following:
+drwx------  2 yourUsername groupOwnership 4.0K Sep 28 14:13 Rosalind_Demo
+```
+The first chunk of drwx------ tell you the directory or file permissions. The 4.0K tells you the size of the directory(note, this is a little confusing because all directories are 4.0K no matter what is in them) or file (the h in -lh makes it so that the size is humann readable i.e. KB, MG, GB) isteady of in bytes).  The date and time following the size is the date the file/directory was last modified.
+
+
+
+The first letter, 'd', indicates that Rosalind_Demo is a directory.  The remaining letters specify which users and groups have access to the directory Rosalind_Demo.  Since you created this directory, by default you also own the directory, therefore, the 'rwx', following the 'd' indicate that you have the ability to read/open Rosalind_Demo (the r), you also have write/modify access (the w), and you have the ability to execute or move into the Rosalind_Demo directory (the x). 
 
