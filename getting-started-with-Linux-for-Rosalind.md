@@ -78,8 +78,12 @@ drwx------  2 yourUsername groupOwnership 4.0K Sep 28 14:13 Rosalind_Demo
 `drwx------` tells you the directory or file permissions. The 4.0K tells you the size of the directory (note, this is a little confusing because directories are always 4.0K no matter what is in them) or file. The `h` in `-lh` makes it so that the size is human readable i.e. KB, MG, GB) istead of in bytes).  The date and time following the size is the date the file/directory was last modified.  The point being, the `-lh` flag can provide you with more detailed information about every item in your directory.  We will revisit the meaning of the `drwx------` in a bit.
 
 
+**5.  How can other users within my group project access my directories and files?! -- 'The 'chmod' command**
+--------------------------------------------------------------------------------------------------------------
+The first letter, 'd', indicates that Rosalind_Demo is a directory.  The remaining letters specify which users and groups have access to the directory `Rosalind_Demo`.  Since you created this directory, by default you also own the directory, therefore, the 'rwx', following the 'd' indicates that you have the ability to read/open Rosalind_Demo (the r), you also have write/modify access (the w), and you have the ability to execute or move into the `Rosalind_Demo` directory (the x).  Please download the supplemental PDF, "Understanding_File_Permissions_in_Linux.pdf" located in the supplemental_PDFs files in this github directory.  Also located here: https://github.com/tbrunetti/Rosalind_HPC/blob/master/supplemental_PDFs/Understanding_File_Permissions_in_Linux.pdf
 
-**5.  Moving and copying files -- The 'mv' and 'cp' commands**
+
+**6.  Moving and copying files -- The 'mv' and 'cp' commands**
 ---------------------------------------------------------------
 Next, we are going to move files to other locations or make copies of them elsewhere.  You must be **very careful** with these commands because they will overwrite exisiting files if you decide to copy or move them to a place where a file with the same name exists. First, lets create a file in the `Rosalind_Demo` directory that was just created in the previous steps.  Make sure to change directories into `Rosalind_Demo`.  Next we are going to open a text editor in Rosalind.  Rosalind has emacs, nano, vi/vim installed.  For the purpose of this demo, I am going to use vim.
 ```
@@ -91,12 +95,9 @@ This will open a the vim text editor.  We can type in anything we want here from
 
 echo 'Hello!  My name is Rosalind!'
 ```
-To save this file and exit vim  press **ESC+w+q**  
+To save this file and exit vim  press **ESC** followed by typing **:wq** and then press **ENTER**.  
+When you list the files in `Rosalind_Demo` you should now see the file/shell script you just created called testing_Rosalind.sh.
 
-
-**6.  How can other users within my group project access my directories and files?! -- 'The 'chmod' command**
---------------------------------------------------------------------------------------------------------------
-The first letter, 'd', indicates that Rosalind_Demo is a directory.  The remaining letters specify which users and groups have access to the directory Rosalind_Demo.  Since you created this directory, by default you also own the directory, therefore, the 'rwx', following the 'd' indicate that you have the ability to read/open Rosalind_Demo (the r), you also have write/modify access (the w), and you have the ability to execute or move into the Rosalind_Demo directory (the x). 
 
 
 ## Helpful Hints for Beginning Linux
