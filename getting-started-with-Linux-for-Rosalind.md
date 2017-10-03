@@ -81,7 +81,17 @@ drwx------  2 yourUsername groupOwnership 4.0K Sep 28 14:13 Rosalind_Demo
 
 **5.  Moving and copying files -- The 'mv' and 'cp' commands**
 ---------------------------------------------------------------
-Next, we are going to move files to other locations or make copies of them elsewhere.  You must be **very careful** with these commands because they will overwrite exisiting files if you decide to copy or move them to a place where a file with the same name exists.
+Next, we are going to move files to other locations or make copies of them elsewhere.  You must be **very careful** with these commands because they will overwrite exisiting files if you decide to copy or move them to a place where a file with the same name exists. First, lets create a file in the `Rosalind_Demo` directory that was just created in the previous steps.  Make sure to change directories into `Rosalind_Demo`.  Next we are going to open a text editor in Rosalind.  Rosalind has emacs, nano, vi/vim installed.  For the purpose of this demo, I am going to use vim.
+```
+vim testing_Rosalind.sh
+```
+This will open a the vim text editor.  We can type in anything we want here from text to code. For an example, I am going to write a simple shell script that you can copy and paste into this window or type out the following:  (PRESS 'i' first, you should see that the mode in the bottom-left corner now has changed to **--INSERT--** mode which means you can type/copy/paste.
+```vim
+#!/bin/bash
+
+echo 'Hello!  My name is Rosalind!'
+```
+To save this file and exit vim  press **ESC+w+q**  
 
 
 **6.  How can other users within my group project access my directories and files?! -- 'The 'chmod' command**
