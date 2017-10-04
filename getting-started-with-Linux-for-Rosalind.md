@@ -73,15 +73,49 @@ If you have other files or directories in this directory it will list those as w
 ```
 You should see something similar to the following:
 ```
-drwx------  2 yourUsername groupOwnership 4.0K Sep 28 14:13 Rosalind_Demo
+drwx------  2 yourUsername yourUsername 4.0K Sep 28 14:13 Rosalind_Demo
 ```
 `drwx------` tells you the directory or file permissions. The 4.0K tells you the size of the directory (note, this is a little confusing because directories are always 4.0K no matter what is in them) or file. The `h` in `-lh` makes it so that the size is human readable i.e. KB, MG, GB) istead of in bytes).  The date and time following the size is the date the file/directory was last modified.  The point being, the `-lh` flag can provide you with more detailed information about every item in your directory.  We will revisit the meaning of the `drwx------` in a bit.
 
 
 **5.  How can other users within my group project access my directories and files?! -- 'The 'chmod' command**
 --------------------------------------------------------------------------------------------------------------
-The first letter, 'd', indicates that Rosalind_Demo is a directory.  The remaining letters specify which users and groups have access to the directory `Rosalind_Demo`.  Since you created this directory, by default you also own the directory, therefore, the 'rwx', following the 'd' indicates that you have the ability to read/open Rosalind_Demo (the r), you also have write/modify access (the w), and you have the ability to execute or move into the `Rosalind_Demo` directory (the x).  Please download the supplemental PDF, "Understanding_File_Permissions_in_Linux.pdf" located in the supplemental_PDFs files in this github directory.  Also located here: https://github.com/tbrunetti/Rosalind_HPC/blob/master/supplemental_PDFs/Understanding_File_Permissions_in_Linux.pdf
-
+Linux allows users to control what users and groups can have access to partiular directories and files, assuming as user has access to your project.  There are 3 types of permissions/access that you should be aware of:  read, write, and execute.  Please download the supplemental PDF, "Understanding_File_Permissions_in_Linux.pdf" located in the supplemental_PDFs files in this github directory.  Also located here: https://github.com/tbrunetti/Rosalind_HPC/blob/master/supplemental_PDFs/Understanding_File_Permissions_in_Linux.pdf  This should give you an understanding of what the permissions mean and why it is important to understand how these work.  Make sure you are located in your project directory and then type in the following:
+```
+[yourUsername@cubipmlgn01 ~]$ ls -lh
+```
+You should see something similar to the following:
+```
+drwx------ 2 yourUsername yourUsername 4.0k Sep 28 14:13 Rosalind_Demo
+[yourUsername@cubipmlgn01 ~]$ 
+```
+All of your pemission can be read by looking only at `drwx------`.  From reading the PDF mentioned above you should have a basic understanding of what the letters and dashes mean.  The first letter, 'd', indicates that `Rosalind_Demo` is a directory.  The remaining letters specify which users and groups have access to the directory `Rosalind_Demo`.  Since you created this directory, by default you also own the directory, therefore, the 'rwx', following the 'd' indicates that you have the ability to read/open `Rosalind_Demo` (the r), you also have write/modify access (the w), and you have the ability to execute or move into the `Rosalind_Demo` directory (the x).  Let's say a member of your group project wants to read a file or go into your directory, but you do not want them to be able to modify file or directories.  You can give only members in your group only read and executable access.  First you should change your group ownership to whatever your group name is on Rosalind.  For example if my group name on Rosalind is "myGroupName" then you can change the group ownership by typing in the following command:
+```
+[yourUsername@cubipmlgn01 ~]$ chown :myGroupName Rosalind_Demo
+[yourUsername@cubipmlgn01 ~]$
+```
+Now if you list what is in your current project directory you will notice that the directory Rosalind_Demo is now owned by the myGroupName group:
+```
+[yourUsername@cubipmlgn01 ~]$ ls -lh
+drwx------ 2 yourUsername myGroupName 4.0k Sep 28 14:17 Rosalind_Demo
+```
+Notice how the only thing that changed is who or what set of users owns the group.  Now you can change group permissions (if you read the PDF you will now this is the second set of dashed triplets in the permissions column).  Changing permissions is performed using the `chmod` command:
+```
+[yourUsername@cubipmlgn01 ~]$ chmod g+rx Rosalind_Demo
+[yourUsername@cubipmlgn01 ~]$
+```
+In the command above, the g indicates you want to modify **g**roup permission by adding, denoted by the **+** symbol, read and executable permissions, as denoted by **rx**.  You can check that this was changed by again using `ls -lh`.
+```
+[yourUsername@cubipmlgn01 ~]$ ls -lh
+drwxr-x--- 2 yourUsername myGroupName 4.0k Sep 28 14:30 Rosalind_Demo
+```
+Let's say you made a mistake and you did not want to give the group read permissions.  You can easily take away these permissions by using the minus **-** symbol:
+```
+[yourUsername@cubipmlgn01 ~]$ chmod g-r Rosalind_Demo
+[yourUsername@cubipmlgn01 ~]$ ls -l
+drwx--x--- 2 yourUsername myGroupName 4.0k Sep 28 14:31 Rosalind_Demo
+```
+Below is a cheat sheet of the combinations you can give `chmod` and what permissions are being granted.
 
 **6.  Moving and copying files -- The 'mv' and 'cp' commands**
 ---------------------------------------------------------------
