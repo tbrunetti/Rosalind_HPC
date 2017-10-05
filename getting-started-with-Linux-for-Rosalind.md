@@ -144,9 +144,22 @@ This will open a the vim text editor.  We can type in anything we want here from
 echo 'Hello!  My name is Rosalind!'
 ```
 To save this file and exit vim  press **ESC** followed by typing **:wq** and then press **ENTER**.  
-When you list the files in `Rosalind_Demo` you should now see the file/shell script you just created called testing_Rosalind.sh.
-
-
+When you list the files in `Rosalind_Demo` you should now see the file/shell script you just created called testing_Rosalind.sh. Since this is a script, we should change the permissions to be executable:
+```
+[yourUsername@cubipmlgn01 ~]$ chmod u+x testing_Rosalind.sh
+[yourUsername@cubipmlgn01 ~]$ 
+```
+Let's say now we decide we need another script that is the same as the one we just wrote but we want to add another line.  We can copy this scrpt to another file using the `cp` command.  The first sting following `cp` is the name of the file you want to copy while the string following that is the new name of the copied file:
+```
+[yourUsername@cubipmlgn01 ~]$ cp testing_Rosalind.sh new_Rosalind_test_file.sh
+```
+The first string following `cp` is the name of the file you want to copy while the string following that is the new name of the copied file.  Nw if you list your files you will see both your original and your copy:
+```
+[yourUsername@cubipmlgn01 ~]$ ls -lh
+-rwx------ 1 yourUsername myGroupName 49 Sep 28 15:01 new_Rosalind_test_file.sh
+-rwx------ 1 yourUsername myGroupName 49 Sep 28 15:00 testing_Rosalind.sh
+```
+You will also notice when you copy a file, the permissions of the original file are adopted by the newly copied file.
 
 ## Helpful Hints for Beginning Linux
 ------------------------------------
