@@ -131,7 +131,7 @@ g-x | remove executable permission to the group
 
 
 
-**6.  Moving and copying files -- The 'mv' and 'cp' commands**
+**6.  Copying and moving files -- The 'cp' and 'mv' commands**
 ---------------------------------------------------------------
 Next, we are going to move files to other locations or make copies of them elsewhere.  You must be **very careful** with these commands because they will overwrite exisiting files if you decide to copy or move them to a place where a file with the same name exists. First, lets create a file in the `Rosalind_Demo` directory that was just created in the previous steps.  Make sure to change directories into `Rosalind_Demo`.  Next we are going to open a text editor in Rosalind.  Rosalind has emacs, nano, vi/vim installed.  For the purpose of this demo, I am going to use vim.
 ```
@@ -153,13 +153,27 @@ Let's say now we decide we need another script that is the same as the one we ju
 ```
 [yourUsername@cubipmlgn01 ~]$ cp testing_Rosalind.sh new_Rosalind_test_file.sh
 ```
-The first string following `cp` is the name of the file you want to copy while the string following that is the new name of the copied file.  Nw if you list your files you will see both your original and your copy:
+The first string following `cp` is the name of the file you want to copy while the string following that is the new name of the copied file.  Now if you list your files you will see both your original and your copy:
+
 ```
 [yourUsername@cubipmlgn01 ~]$ ls -lh
 -rwx------ 1 yourUsername myGroupName 49 Sep 28 15:01 new_Rosalind_test_file.sh
 -rwx------ 1 yourUsername myGroupName 49 Sep 28 15:00 testing_Rosalind.sh
 ```
 You will also notice when you copy a file, the permissions of the original file are adopted by the newly copied file.
+
+How about we decide we want to make a new directory to keep all of our scripts organized.  First we have to make that directory:
+```
+[yourUsername@cubipmlgn01 ~]$ mkdir scripts
+[yourUsername@cubipmlgn01 ~]$ ls -lh
+-rwx------ 1 yourUsername myGroupName 49 Sep 28 15:01 new_Rosalind_test_file.sh
+drwx--S--- 2 yourUsername myGroupName 4.0K Sep 28 15:12 scripts
+-rwx------ 1 yourUsername myGroupName 49 Sep 28 15:00 testing_Rosalind.sh
+```
+You can see that by listing everything in the `Rosalind_Demo` directory you can see your newly created `<font>color="blue"scripts directory</font>`
+
+
+
 
 ## Helpful Hints for Beginning Linux
 ------------------------------------
