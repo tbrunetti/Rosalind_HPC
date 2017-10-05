@@ -115,7 +115,7 @@ Let's say you made a mistake and you did not want to give the group read permiss
 [yourUsername@cubipmlgn01 ~]$ ls -l
 drwx--x--- 2 yourUsername myGroupName 4.0k Sep 28 14:31 Rosalind_Demo
 ```
-Below is a cheat sheet of some of the more common combinations used on Rosalind you can give `chmod` and what permissions are being granted.  It is worth noting that once you give a permssion in order to take it away you must use the minus (-) sign followed by the permission you want to remove for that file/directory.
+Below is a cheat sheet of some of the more common combinations used on Rosalind you can give `chmod` and what permissions are being granted.  It is worth noting that once you give a permssion in order to take it away you must use the minus (-) sign followed by the permission you want to remove for that file/directory.  
 | COMBO | MEANING |
 | --- | --- |
 | u+x | give the owner (yourself) permission to execute a file |
