@@ -170,7 +170,7 @@ How about we decide we want to make a new directory to keep all of our scripts o
 drwx--S--- 2 yourUsername myGroupName 4.0K Sep 28 15:12 scripts
 -rwx------ 1 yourUsername myGroupName 49 Sep 28 15:00 testing_Rosalind.sh
 ```
-You can see that by listing everything in the `Rosalind_Demo` directory you can see your newly created <font>color="blue"`scripts`</font> directory.
+You can see that by listing everything in the `Rosalind_Demo` directory you can see your newly created <span style="color:blue">`scripts`</span> directory.
 
 
 
