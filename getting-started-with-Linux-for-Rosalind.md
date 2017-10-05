@@ -170,8 +170,31 @@ How about we decide we want to make a new directory to keep all of our scripts o
 drwx--S--- 2 yourUsername myGroupName 4.0K Sep 28 15:12 scripts
 -rwx------ 1 yourUsername myGroupName 49 Sep 28 15:00 testing_Rosalind.sh
 ```
-You can see that by listing everything in the `Rosalind_Demo` directory you can see your newly created <span style="color:blue">`scripts`</span> directory.
-
+You can see that by listing everything in the `Rosalind_Demo` directory you can see your newly created <span style="color:blue">`scripts`</span> directory.  Now we can move all of your scripts inside the scripts directory by using the `mv` command:
+```
+[yourUsername@cubipmlgn01 ~]$ mv new_Rosalind_test_file.sh scripts
+```
+Where the name of the file you want to move is the first string following the 'mv' command.  The next string is the name of the file/directory destination you want to move the file to.
+```
+[yourUsername@cubipmlgn01 ~]$ ls -lh
+drwx--S--- 2 yourUsername myGroupName 4.0K Sep 28 15:12 scripts
+-rwx------ 1 yourUsername myGroupName 49 Sep 28 15:00 testing_Rosalind.sh
+[yourUsername@cubipmlgn01 ~]$ cd scripts
+[yourUsername@cubipmlgn01 ~]$ ls -lh
+-rwx------ 1 yourUsername myGroupName 49 Sep 28 15:01 new_Rosalind_test_file.sh
+```
+You can see that you have now successfully moved `new_Rosalind_test_file.sh` into the scripts directory.  Now let's move up one directory back to the `Rosalind_Demo` directory.
+```
+[yourUsername@cubipmlgn01 ~]$ cd ..
+```
+Let's say you want to change the name/rename the `testing_Rosalind.sh` script.  You can also use the `mv` command here.  **Be very careful here.  If you rename the file to name that already exists in the directory, it will overwrite it!!!**
+```
+[yourUsername@cubipmlgn01 ~]$ mv testing_Rosalind.sh renamed_testing_Rosalind.sh
+[yourUsername@cubipmlgn01 ~]$ ls -lh
+-rwx------ 1 yourUsername myGroupName 49 Sep 28 15:52 renamed_testing_Rosalind.sh
+drwx--S--- 2 yourUsername myGroupName 4.0K Sep 28 15:12 scripts
+```
+You can see that the original script we created `testing_Rosalind.sh` has now updated its file name to `renamed_testing_Rosalind.sh`.
 
 
 
