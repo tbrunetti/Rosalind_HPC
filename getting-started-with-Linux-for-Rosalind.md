@@ -78,7 +78,7 @@ drwx------  2 yourUsername yourUsername 4.0K Sep 28 14:13 Rosalind_Demo
 `drwx------` tells you the directory or file permissions. The 4.0K tells you the size of the directory (note, this is a little confusing because directories are always 4.0K no matter what is in them) or file. The `h` in `-lh` makes it so that the size is human readable i.e. KB, MG, GB) istead of in bytes).  The date and time following the size is the date the file/directory was last modified.  The point being, the `-lh` flag can provide you with more detailed information about every item in your directory.  We will revisit the meaning of the `drwx------` in a bit.
 
 
-**5.  How can other users within my group project access my directories and files?! -- 'The 'chmod' command**
+**5.  How can other users within my group project access my directories and files?! -- The 'chmod' command**
 --------------------------------------------------------------------------------------------------------------
 Linux allows users to control what users and groups can have access to partiular directories and files, assuming as user has access to your project.  There are 3 types of permissions/access that you should be aware of:  read, write, and execute.  Please download the supplemental PDF, "Understanding_File_Permissions_in_Linux.pdf" located in the supplemental_PDFs files in this github directory.  Also located here: https://github.com/tbrunetti/Rosalind_HPC/blob/master/supplemental_PDFs/Understanding_File_Permissions_in_Linux.pdf  This should give you an understanding of what the permissions mean and why it is important to understand how these work.  Make sure you are located in your project directory and then type in the following:
 ```
@@ -174,7 +174,7 @@ You can see that by listing everything in the `Rosalind_Demo` directory you can 
 ```
 [yourUsername@cubipmlgn01 ~]$ mv new_Rosalind_test_file.sh scripts
 ```
-Where the name of the file you want to move is the first string following the 'mv' command.  The next string is the name of the file/directory destination you want to move the file to.
+Where the name of the file you want to move is the first string following the `mv` command.  The next string is the name of the file/directory destination you want to move the file to.
 ```
 [yourUsername@cubipmlgn01 ~]$ ls -lh
 drwx--S--- 2 yourUsername myGroupName 4.0K Sep 28 15:12 scripts
@@ -194,7 +194,26 @@ Let's say you want to change the name/rename the `testing_Rosalind.sh` script.  
 -rwx------ 1 yourUsername myGroupName 49 Sep 28 15:52 renamed_testing_Rosalind.sh
 drwx--S--- 2 yourUsername myGroupName 4.0K Sep 28 15:12 scripts
 ```
-You can see that the original script we created `testing_Rosalind.sh` has now updated its file name to `renamed_testing_Rosalind.sh`.
+You can see that the original script we created `testing_Rosalind.sh` has now updated its file name to `renamed_testing_Rosalind.sh`.  
+
+**7.  Deleting files and directories (WARNING: BE VERY CAREFUL!) -- The 'rm', 'rm -r' and 'rmdir' commands**
+-------------------------------------------------------------------------------------------------------------
+There may be times that you want to delete files and even complete directories permanently. Maybe a set of anlaysis was run incorrectly so you want to delete all the results so as not to confuse yourself or maybe you have a lot of intermediate and temporary files that you no longer have any use for.  Linux has three basic but powerful commands to remove these unwanted files and directories.  **We cannot stress this enough.** Before you delete any files or complete directories **PLEASE BE 100% SURE YOU WILL NEVER EVER EVER NEED THESE FILES AND DIRECTORIES AGAIN OR THAT YOU HAVE THEM BACKED UP AT A DIFFERENT LOCATION.  ONCE YOU EXECUTE THE COMMANDS THEY ARE PERMANENTLY DELETED! NO RECOVERY AVAILABLE!**  Let's say you want to now permanently delete the `scripts` directory we created above. This will remove all the contents of the directory and the directory itself:
+```
+[yourUsername@cubipmlgn01 ~]$ rmdir scripts
+[yourUsername@cubipmlgn01 ~]$ ls -lh
+-rwx------ 1 yourUsername myGroupName 49 Sep 28 15:52 renamed_testing_Rosalind.sh
+```
+You can see that `scripts` and everything it contained is now no longer listed in your `Rosalind_Demo` directory and permanently deleted.  The other option you could have used to delete the `scripts` directory is the following:
+```
+[yourUsername@cubipmlgn01 ~]$ rm -r scripts
+```
+Lastly, if you wanted to delete a single file, you can use the `rm` command without using the `-r` option.  For example, we can delete the `renamed_testing_Rosalind.sh` file by executing the following command:
+```
+[yourUsername@cubipmlgn01 ~]$ rm renamed_testing_Rosalind.sh
+```
+You will notice this file no longer exists and has been permanently deleted from the `Rosalind_Demo` directory.
+
 
 
 
