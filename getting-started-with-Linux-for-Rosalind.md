@@ -116,17 +116,17 @@ Let's say you made a mistake and you did not want to give the group read permiss
 drwx--x--- 2 yourUsername myGroupName 4.0k Sep 28 14:31 Rosalind_Demo
 ```
 Below is a cheat sheet of some of the more common combinations used on Rosalind you can give `chmod` and what permissions are being granted.  It is worth noting that once you give a permssion in order to take it away you must use the minus (-) sign followed by the permission you want to remove for that file/directory.  
-| COMBO | MEANING |
-| --- | --- |
-| u+x | give the owner (yourself) permission to execute a file |
-| u+rwx | give the owener (yourself or person who created it) permission to read, write, and execute a file |
-| u+rw| give the owner (yourself or perons who created it) permission to only read and write a file |
-| g+r | give group read only permissions |
-| g+w | give a group write only permissions |
-| g+x | give group executable only permissions (needed to get into a directory) |
-| g+rwx | give a group read, write, and executable permissions |
-| g-w | remove write permissions to the group |
-| g-x | remove executable permission to the group |
+COMBO | MEANING
+----- | -------
+u+x | give the owner (yourself) permission to execute a file
+u+rwx | give the owener (yourself or person who created it) permission to read, write, and execute a file
+u+rw | give the owner (yourself or perons who created it) permission to only read and write a file 
+g+r | give group read only permissions
+g+w | give a group write only permissions
+g+x | give group executable only permissions (needed to get into a directory)
+g+rwx | give a group read, write, and executable permissions
+g-w | remove write permissions to the group
+g-x | remove executable permission to the group
 
 
 
