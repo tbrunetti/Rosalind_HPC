@@ -212,7 +212,9 @@ Lastly, if you wanted to delete a single file, you can use the `rm` command with
 ```
 [yourUsername@cubipmlgn01 ~]$ rm renamed_testing_Rosalind.sh
 ```
-You will notice this file no longer exists and has been permanently deleted from the `Rosalind_Demo` directory.
+You will notice this file no longer exists and has been permanently deleted from the `Rosalind_Demo` directory.  
+
+This should get you through the very basics of navigating Rosalind using basic Linux commands.  After you feel comfortable with these commands, we recommend that you delve futher into the Linux world as there are several, several short cuts and commands that can make your life much easier and save you a lot of time navigating and manipulating files!  Enjoy!
 
 
 
