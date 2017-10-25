@@ -11,6 +11,8 @@ Currently, nothing is backed up. Please make sure that you have your own backup 
 
 We are targeting both HIPAA compliance and backup of selected data within the next few months.
 
+Getting Started Guide version 1.5
+
 ## Cluster Specifications
 * Quantity 32 Linux compute nodes, each with 24 CPU cores and 128 GB of RAM
 * Quantity 2 Linux high memory node, with 36 CPU cores and 1536 GB of RAM
@@ -20,17 +22,23 @@ We are targeting both HIPAA compliance and backup of selected data within the ne
 
 ## Logging In
 
-The cluster can only be reached through campus networks or through the campus VPN.
+The cluster can only be reached by using a jump host, which is an intermediary system which provides enhanced security by sitting between campus networks and the Rosalind HPC cluster. The jump host is only reachable from campus networks and the campus VPN (but not directly from the internet)
 
-To log in to the cluster, you will need a SSH client. If you have a Linux or Mac computer, open a terminal and log in using:
+To log in to the jump host, you will need a SSH client. If you have a Linux or Mac computer, open a terminal and log in using:
 
-```ssh username@cubipmlgn01.ucdenver.pvt```
+```ssh username@cubipmaccess.ucdenver.pvt```
 
 Where username is your CU "short" username.  (example:   jonesp,  not paul.jones@ucdenver.edu)
 
-If you have a Windows computer, you will have to download a SSH client first. We recommend Putty, downloadable [here](https://the.earth.li/~sgtatham/putty/latest/x86/putty.exe)
+If you have a Windows computer, you will have to download a SSH client first. One simple option is PuTTY, downloadable [here](https://the.earth.li/~sgtatham/putty/latest/x86/putty.exe)
 
-If you are using Putty on Windows, enter Rosalind's address, ```cubipmlgn01.ucdenver.pvt``` , into the Host Name blank and press Open to begin.
+If you are using Putty on Windows, enter the jump host's address, ```cubipmaccess.ucdenver.pvt``` , into the Host Name blank and press Open to begin.
+
+Once you are logged into the jump host, all you need to do to log into the HPC cluster is to type ```ssh hpc``` at the jump host's command prompt.
+
+## Transferring data
+
+Similarly, to transfer data into the Rosalind HPC storage system, you must use a data transfer jump host. To do this, use a SFTP client to make a SFTP protocol connection to ```cubipmsftp.ucdenver.pvt```. Once connected, you will see a directory named after your username. You may upload your data into this directory, and it will appear at /gpfs/transfer/username on the Rosalind CLI, where username represents your CU username. Please move any data you have uploaded from the transfer area to your home directory or project directory as soon as possible. This ensures that the security function of the data transfer jump host remains effective. The transfer area will never be backed up and data may be removed from it any time, since it is not intended as a location for permanent data storage.
 
 ## Home and Scratch
 
@@ -202,18 +210,19 @@ In order to run MPI jobs, you only need to load a MPI module and specify the des
 ```
 #!/bin/bash
 
-#SBATCH --ntasks=48
-#SBATCH --nodes=2
-#SBATCH --mem=1000
-#SBATCH -J mpitest
-#SBATCH --output=/home/you/mpitest.log
-#SBATCH --open-mode=append
+#SBATCH --time=60
+#SBATCH --nodes=4
+#SBATCH --ntasks-per-node=24
 
-module load openmpi
-mpirun hostname
+module load mpich/ge/gcc/64/3.2rc2
+module load slurm
+
+# using srun here allows srun to set up the MPI environment for you
+srun my_mpi_program  
+
 ```
 
-Specifying ```--open-mode=append``` means that your output log file will not be overwritten by subsequent runs of the same job. Instead, new results will be added to it.
+Optionally adding ```#SBATCH --open-mode=append``` would mean that your output log file will not be overwritten by subsequent runs of the same job. Instead, new results will be added to it.
 
 ## Best Practices
 
