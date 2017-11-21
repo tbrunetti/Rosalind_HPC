@@ -1,6 +1,6 @@
 # Welcome to the Rosalind HPC GitHub Page!
 
-<p align="center">**Rosalind is not yet HIPAA-compliant!  No PHI can be stored here yet!**</p>
+<p align="center"><strong>Rosalind is not yet HIPAA-compliant!  No PHI can be stored here yet!</strong></p>
 
 ## Table of Contents
 
