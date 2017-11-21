@@ -78,7 +78,7 @@ drwx------  2 yourUsername yourUsername 4.0K Sep 28 14:13 Rosalind_Demo
 `drwx------` tells you the directory or file permissions. The 4.0K tells you the size of the directory (note, this is a little confusing because directories are always 4.0K no matter what is in them) or file. The `h` in `-lh` makes it so that the size is human readable i.e. KB, MG, GB) istead of in bytes).  The date and time following the size is the date the file/directory was last modified.  The point being, the `-lh` flag can provide you with more detailed information about every item in your directory.  We will revisit the meaning of the `drwx------` in a bit.
 
 
-**5.  How can other users within my group project access my directories and files?! -- The 'chmod' command**
+**5.  How can other users within my group project access my directories and files?! -- The 'chown' and 'chmod' commands**
 --------------------------------------------------------------------------------------------------------------
 Linux allows users to control what users and groups can have access to partiular directories and files, assuming as user has access to your project.  There are 3 types of permissions/access that you should be aware of:  read, write, and execute.  Please download the supplemental PDF, "Understanding_File_Permissions_in_Linux.pdf" located in the supplemental_PDFs files in this github directory.  Also located here: https://github.com/tbrunetti/Rosalind_HPC/blob/master/supplemental_PDFs/Understanding_File_Permissions_in_Linux.pdf  This should give you an understanding of what the permissions mean and why it is important to understand how these work.  Make sure you are located in your project directory and then type in the following:
 ```
