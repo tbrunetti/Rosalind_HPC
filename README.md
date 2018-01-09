@@ -5,7 +5,9 @@
 ## Table of Contents
 
 1.  [Getting Started with Linux](https://github.com/tbrunetti/Rosalind_HPC/blob/master/getting-started-with-Linux-for-Rosalind.md)
+    * An introduction to using Linux and the command line
 2.  [Rosalind Data Flow Architecture](https://github.com/tbrunetti/Rosalind_HPC/blob/master/Rosalind_architecture_front_page.md)
+    * Accessing Rosalind and Data Flow schematic for adding and retrieving data
 3.  [Getting Started with Rosalind HPC](https://github.com/tbrunetti/Rosalind_HPC/blob/master/rosalind-getting-started.md)
 4.  [SLURM Task Management]  
     * Info regarding more in-depth usage of SLURM (interactive runs, status, cancelling/killing several jobs, submitting job arrays, etc...)
