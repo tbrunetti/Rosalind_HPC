@@ -10,7 +10,7 @@ This is because SAS and MATLAB are only currently available on a subset of stand
 <div class="paragraph"><p><br>
 <br></p></div>
 
-## Nodes
+## Compute Nodes
 By default, if a user does not specify a node type, all jobs are submitted to one or more of the standard compute nodes.  In order to access a high memory node, a user must specify this in the SLURM script.  
 
 Rosalind has two types of compute nodes available for general use:
