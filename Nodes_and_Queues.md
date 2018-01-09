@@ -1,6 +1,4 @@
 # Nodes and Queues Available
-
-# Nodes and Queues Available
 Rosalind has a few nodes and queues for which a user can choose to submit a job.  This becomes particularly important if a user requires any of the following specifications:
   * SAS
   * MATLAB
@@ -30,6 +28,48 @@ The high memory node can be specified in the SLURM batch script by adding the fo
 ```
 
 This will automatically submit your job to the high memory nodes if there are enough resources available to allocate for the specified job.  If not, your job will wait in the bigmem queue until resource become available for the high memory nodes.
+
+
+## Accessing/Utilizing SAS
+Currently, we have 2 standard compute nodes with SAS licenses or (48 CPU/cores available total across the 2 nodes).  There are two ways a user may want to access SAS: interactively or submitting a batch script to a SAS node(s).  
+
+__Interactive SAS__  
+SAS can be run interactively on the Rosalind command line as well by running through the following steps.  This is analogous to running SAS in real-time using the SAS command prompt.  
+1.  First request an available SAS node by running the following on the Rosalind command line (note: last character is lowercase L):
+```
+srun --time=60 -p sas -n1 --pty bash -l
+```
+This will request a single SAS node (-n1) for a total of 1 hour (--time=60).
+2.  Next, type in the following to execute and start the SAS interactive session:
+```
+/opt/SAS/9.4/SASFoundation/9.4/bin/sas_en -nodmsexp
+```
+You are now in an interactive SAS session that will automatically terminate in 1 hour.  However, it is important to note the following:
+__terminating an interactive session earlier than the specified time is a 2 step process!__  If you do not follow the 2 step process, you will be charged for the full time specified regardless if you actually used the reserved node.  
+3.  Terminating an interactive session early:
+  * Ctrl-d will terminate SAS
+  * another ctrl-d will terminate the interactive session on the SAS node or scancel and your jobid which can be found by squeue -u <yourusername>  
+
+To be sure the session is terminated type:
+```
+squeue -u <your username>
+```
+You should see that job that has the sas interactive session has a status of COMPLETED or CANCELED
+
+
+__BATCH SAS__  
+1.  The first step is to specify the batch script should be submitted to a node with a SAS installation.  Thish can be done by adding the following line to the list of #SBATCH headers:
+```
+#SBATCH -p sas
+```
+2.  Next, a user may wish to specify the number of SAS nodes they would like to use __(max 2)__ or the number of CPUs/cores they would like to use __(max 24 per node)__.  This should be specified in the #SBATCH headers.
+
+3.  When running the SAS command call in the sbatch script use the following SAS executable call:
+```
+/opt/SAS/9.4/SASFoundation/9.4/bin/sas_en <followed by your SAS script>
+```
+
+4.  Keep in mind if a time is not specified in the batch script header, the job will automatically be killed after 4 hours.  However, you can specify a time of up to 2 weeks for these nodes.
 
 
 ## Accessing longrun queues
