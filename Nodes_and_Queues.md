@@ -7,6 +7,9 @@ Rosalind has a few nodes and queues for which a user can choose to submit a job.
 
 This is because SAS and MATLAB are only currently available on a subset of standard compute nodes, and the default standard compute nodes only have a total of 128 GB of usable RAM. Although all nodes have the capacity to run past 36 hours, SLURM automatically kills any jobs on the standard compute nodes surpassing this time limit unless a specific queue is specified, regarless of the time specified by the user.
 
+<div class="paragraph"><p><br>
+<br></p></div>
+
 ## Nodes
 By default, if a user does not specify a node type, all jobs are submitted to one or more of the standard compute nodes.  In order to access a high memory node, a user must specify this in the SLURM script.  
 
@@ -19,6 +22,9 @@ Rosalind has two types of compute nodes available for general use:
 **The 2 high memory nodes contain 36 CPUs per node for a total of 1536 GB of available RAM per high memory node.**
 ![high_memory](https://github.com/tbrunetti/Rosalind_HPC/blob/develop/images/high_memory_compute.png)
 
+<div class="paragraph"><p><br>
+<br></p></div>
+
 ## Accessing/Utilizing the High Memory Nodes
 Due to the limited number of high memory nodes, only jobs that surpass the memory requirements of the standard nodes or lack of standard node availability should the user choose to run on jobs on these two designated nodes.
 
@@ -29,6 +35,8 @@ The high memory node can be specified in the SLURM batch script by adding the fo
 
 This will automatically submit your job to the high memory nodes if there are enough resources available to allocate for the specified job.  If not, your job will wait in the bigmem queue until resource become available for the high memory nodes.
 
+<div class="paragraph"><p><br>
+<br></p></div>
 
 ## Accessing/Utilizing SAS
 Currently, we have 2 standard compute nodes with SAS licenses or (48 CPU/cores available total across the 2 nodes).  There are two ways a user may want to access SAS: interactively or submitting a batch script to a SAS node(s).  
@@ -71,7 +79,8 @@ __BATCH SAS__
 
 4.  Keep in mind if a time is not specified in the batch script header, the job will automatically be killed after 4 hours.  However, you can specify a time of up to 2 weeks for these nodes.
 
-
+<div class="paragraph"><p><br>
+<br></p></div>
 
 ## Accessing/Utilizing MATLAB
 MATLAB access is similar to how one would access the SAS node.  Currently, we have 4 standard compute nodes with MATLAB licenses or (96 CPU/cores available total across the 4 nodes).  There are two ways a user may want to access MATLAB: interactively or submitting a batch script to a MATLAB licensed node(s).  
@@ -114,7 +123,8 @@ __BATCH MATLAB__
 
 4.  Keep in mind if a time is not specified in the batch script header, the job will automatically be killed after 4 hours.  However, you can specify a time of up to 2 weeks for these nodes.
 
-
+<div class="paragraph"><p><br>
+<br></p></div>
 
 
 ## Accessing longrun queues
