@@ -8,8 +8,8 @@
 2.  [Rosalind Architecture]
 3.  [Getting Started with Rosalind HPC](https://github.com/tbrunetti/Rosalind_HPC/blob/master/rosalind-getting-started.md)
 4.  [SLURM Task Management]  
-	Info regarding more in-depth usage of SLURM (interactive runs, status, cancelling/killing several jobs, submitting job arrays, etc...)
-5.  [Nodes and Queues Available]()
-	This is particularly important if you are planning on using SAS, MATLAB, or have scripts/programs that require a lot (> 100GB) of RAM or long run times (> 36 hours)
+    * Info regarding more in-depth usage of SLURM (interactive runs, status, cancelling/killing several jobs, submitting job arrays, etc...)
+5.  [Nodes and Queues Available](https://github.com/tbrunetti/Rosalind_HPC/blob/master/Nodes_and_Queues.md)  
+    * This is particularly important if you are planning on using SAS, MATLAB, or have scripts/programs that require a lot (> 100GB) of RAM or long run times (> 36 hours)
 6.  [Software Installs]
 7.  [FAQs]
