@@ -5,7 +5,7 @@ Rosalind has a few nodes and queues for which a user can choose to submit a job.
   * large memory requirements > 100GB
   * long run times > 36 hours  
 
-This is because SAS and MATLAB are only currently available on a subset of standard compute nodes, and the default standard compute nodes only have a total of 128 GB of usable RAM. Although all nodes have the capacity to run past 36 hours, SLURM automatically kills any jobs on the standard compute nodes surpassing this time limit unless a specific queue is specified, regarless of the time specified by the user.
+This is because SAS and MATLAB are only currently available on a subset of standard compute nodes, and the default standard compute nodes only have a total of 128 GB of usable RAM. Although a user may specify a submitted batch job to run past 36 hours, SLURM automatically kills any jobs on the standard compute nodes surpassing this time limit unless a specific queue (longrun) is specified, regardless of the time specified by the user.
 
 <div class="paragraph"><p><br>
 <br></p></div>
@@ -77,7 +77,7 @@ __BATCH SAS__
 /opt/SAS/9.4/SASFoundation/9.4/bin/sas_en <followed by your SAS script>
 ```
 
-4.  Keep in mind if a time is not specified in the batch script header, the job will automatically be killed after 4 hours.  However, you can specify a time of up to 2 weeks for these nodes.
+4.  Keep in mind if a time is not specified in the batch script header, the job will automatically be killed after 4 hours.  However, you can specify a time of up to 1 week for these nodes.
 
 <div class="paragraph"><p><br>
 <br></p></div>
@@ -121,7 +121,7 @@ __BATCH MATLAB__
 /opt/MATLAB/R2017b/bin/matlab <followed by your MATLAB script>
 ```
 
-4.  Keep in mind if a time is not specified in the batch script header, the job will automatically be killed after 4 hours.  However, you can specify a time of up to 2 weeks for these nodes.
+4.  Keep in mind if a time is not specified in the batch script header, the job will automatically be killed after 4 hours.  However, you can specify a time of up to 1 week for these nodes.
 
 <div class="paragraph"><p><br>
 <br></p></div>
