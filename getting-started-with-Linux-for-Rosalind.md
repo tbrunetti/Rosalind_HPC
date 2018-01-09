@@ -1,7 +1,7 @@
 # Intro To Linux and the Rosalind HPC
 --------------------------------------
 The Linux and the command line may seem like a daunting undertaking initially, but with some practice and these basic commands, you should be able to navigate through Rosalind like a pro!  
-
+![linux_penguin_students](https://github.com/tbrunetti/Rosalind_HPC/blob/master/images/penguin_linux_students.png)
 
 **1.  Where Am I?! -- The 'pwd' command**
 --------------------------------------
