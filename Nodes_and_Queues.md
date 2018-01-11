@@ -58,7 +58,7 @@ __terminating an interactive session earlier than the specified time is a 2 step
 
 *3.  Terminating an interactive session early:*
   * Ctrl-d will terminate SAS
-  * another ctrl-d will terminate the interactive session on the SAS node or scancel and your jobid which can be found by squeue -u <yourusername>  
+  * another ctrl-d will terminate the interactive session on the SAS node or `scancel <your jobid>` which can be found by `squeue -u <yourusername>`  
 
 To be sure the session is terminated type:
 ```
@@ -104,7 +104,7 @@ You are now in an interactive MATLAB session that will automatically terminate i
 __terminating an interactive session earlier than the specified time is a 2 step process!__  If you do not follow the 2 step process, you will be charged for the full time specified regardless if you actually used the reserved node.  
 *3.  Terminating an interactive session early:*
   * Ctrl-d will terminate MATLAB
-  * another ctrl-d will terminate the interactive session on the MATLAB node or `scancel` and your jobid which can be found by `squeue -u <yourusername>`
+  * another ctrl-d will terminate the interactive session on the MATLAB node or `scancel <your jobid>` which can be found by `squeue -u <yourusername>`
 
 To be sure the session is terminated type:
 ```
