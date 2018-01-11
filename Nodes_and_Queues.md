@@ -43,18 +43,20 @@ Currently, we have 2 standard compute nodes with SAS licenses or (48 CPU/cores a
 
 __Interactive SAS__  
 SAS can be run interactively on the Rosalind command line as well by running through the following steps.  This is analogous to running SAS in real-time using the SAS command prompt.  
-1.  First request an available SAS node by running the following on the Rosalind command line (note: last character is lowercase L):
+*1.  First request an available SAS node by running the following on the Rosalind command line (note: last character is lowercase L):*
 ```
 srun --time=60 -p sas -n1 --pty bash -l
 ```
-This will request a single SAS node (-n1) for a total of 1 hour (--time=60).
-2.  Next, type in the following to execute and start the SAS interactive session:
+This will request a single SAS node (-n1) for a total of 1 hour (--time=60).  
+
+*2.  Next, type in the following to execute and start the SAS interactive session:*
 ```
 /opt/SAS/9.4/SASFoundation/9.4/bin/sas_en -nodmsexp
 ```
 You are now in an interactive SAS session that will automatically terminate in 1 hour.  However, it is important to note the following:
 __terminating an interactive session earlier than the specified time is a 2 step process!__  If you do not follow the 2 step process, you will be charged for the full time specified regardless if you actually used the reserved node.  
-3.  Terminating an interactive session early:
+
+*3.  Terminating an interactive session early:*
   * Ctrl-d will terminate SAS
   * another ctrl-d will terminate the interactive session on the SAS node or scancel and your jobid which can be found by squeue -u <yourusername>  
 
@@ -66,18 +68,19 @@ You should see that job that has the sas interactive session has a status of COM
 
 
 __BATCH SAS__  
-1.  The first step is to specify the batch script should be submitted to a node with a SAS installation.  This can be done by adding the following line to the list of #SBATCH headers:
+*1.  The first step is to specify the batch script should be submitted to a node with a SAS installation.  This can be done by adding the following line to the list of #SBATCH headers:*
 ```
 #SBATCH -p sas
 ```
-2.  Next, a user may wish to specify the number of SAS nodes they would like to use __(max 2)__ or the number of CPUs/cores they would like to use __(max 24 per node)__.  This should be specified in the #SBATCH headers.
+*2.  Next, a user may wish to specify the number of SAS nodes they would like to use __(max 2)__ or the number of CPUs/cores they would like to use __(max 24 per node)__.  This should be specified in the #SBATCH headers.*  
 
-3.  When running the SAS command call in the sbatch script use the following SAS executable call:
+
+*3.  When running the SAS command call in the sbatch script use the following SAS executable call:*
 ```
 /opt/SAS/9.4/SASFoundation/9.4/bin/sas_en <followed by your SAS script>
 ```
 
-4.  Keep in mind if a time is not specified in the batch script header, the job will automatically be killed after 4 hours.  However, you can specify a time of up to 1 week for these nodes.
+*4.  Keep in mind if a time is not specified in the batch script header, the job will automatically be killed after 4 hours.  However, you can specify a time of up to 1 week for these nodes.*
 
 <div class="paragraph"><p><br>
 <br></p></div>
@@ -87,20 +90,21 @@ MATLAB access is similar to how one would access the SAS node.  Currently, we ha
 
 __Interactive MATLAB__  
 MATLAB can be run interactively on the Rosalind command line as well by running through the following steps.  This is analogous to running MATLAB in real-time using the MATLAB command prompt.  
-1.  First request an available MATLAB node by running the following on the Rosalind command line (note: the character following the bash - is a lowercase L):
+*1.  First request an available MATLAB node by running the following on the Rosalind command line (note: the character following the bash - is a lowercase L):*
 ```
 srun --time=60 -p matlab -n1 --pty bash -l
 ```
-This will request a single MATLAB node (-n1) for a total of 1 hour (--time=60).
-2.  Next, type in the following to execute and start the MATLAB interactive session:
+This will request a single MATLAB node (-n1) for a total of 1 hour (--time=60).  
+
+*2.  Next, type in the following to execute and start the MATLAB interactive session:*
 ``` 
 /opt/MATLAB/R2017b/bin/matlab
 ```
 You are now in an interactive MATLAB session that will automatically terminate in 1 hour.  However, it is important to note the following:
 __terminating an interactive session earlier than the specified time is a 2 step process!__  If you do not follow the 2 step process, you will be charged for the full time specified regardless if you actually used the reserved node.  
-3.  Terminating an interactive session early:
+*3.  Terminating an interactive session early:*
   * Ctrl-d will terminate MATLAB
-  * another ctrl-d will terminate the interactive session on the MATLAB node or scancel and your jobid which can be found by squeue -u <yourusername>  
+  * another ctrl-d will terminate the interactive session on the MATLAB node or `scancel` and your jobid which can be found by `squeue -u <yourusername>`
 
 To be sure the session is terminated type:
 ```
@@ -110,18 +114,18 @@ You should see that job that has the matlab interactive session has a status of 
 
 
 __BATCH MATLAB__  
-1.  The first step is to specify the batch script should be submitted to a node with a MATLAB installation.  This can be done by adding the following line to the list of #SBATCH headers:
+*1.  The first step is to specify the batch script should be submitted to a node with a MATLAB installation.  This can be done by adding the following line to the list of #SBATCH headers:*
 ```
 #SBATCH -p matlab
 ```
-2.  Next, a user may wish to specify the number of SAS nodes they would like to use __(max 4)__ or the number of CPUs/cores they would like to use __(max 24 per node)__.  This should be specified in the #SBATCH headers.
+*2.  Next, a user may wish to specify the number of SAS nodes they would like to use __(max 4)__ or the number of CPUs/cores they would like to use __(max 24 per node)__.  This should be specified in the #SBATCH headers.*  
 
-3.  When running the MATLAB command call in the sbatch script use the following MATLAB executable call:
+*3.  When running the MATLAB command call in the sbatch script use the following MATLAB executable call:*
 ```
 /opt/MATLAB/R2017b/bin/matlab <followed by your MATLAB script>
 ```
 
-4.  Keep in mind if a time is not specified in the batch script header, the job will automatically be killed after 4 hours.  However, you can specify a time of up to 1 week for these nodes.
+*4.  Keep in mind if a time is not specified in the batch script header, the job will automatically be killed after 4 hours.  However, you can specify a time of up to 1 week for these nodes.*
 
 <div class="paragraph"><p><br>
 <br></p></div>
