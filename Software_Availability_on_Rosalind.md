@@ -1,9 +1,9 @@
 # Software Available
 
-Rosalind has many of the widely used programming/scripting languages and tools already pre-installed. Some of these languages are globally installed and ready for use as one would do on their local device, while other may need to be loaded as modules or as a node request before the language can be used.
+Rosalind has many of the widely used programming/scripting languages and tools already pre-installed. Some of these languages are globally installed and ready for use, while others may need to be loaded as modules or as a node request before the language can be used.
 
 ##  Global Installs
-These language can be used similarly to how one would use them on their local device.  They are globally available to all users anywhere they may navigate to within their group on Rosalind.
+These language can be used similarly to how one would use them on their local device.  They are globally available to all users anywhere they may navigate within their group(s) on Rosalind.
 1.  Java
 2.  C/C++
 3.  Awk
