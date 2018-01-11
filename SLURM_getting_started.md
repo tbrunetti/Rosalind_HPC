@@ -64,15 +64,49 @@ The `$USER` field can remain exactly as is (literally $USER), but change the myG
 <div class="paragraph"><p><br>
 <br></p></div>  
 
-## Check Job Status and Queue
+## Check Job Status, Job Stats, and overall Queue
 
+After a user submits batch job to SLURM, a user may want to know what the status is of their job (PENDING, RUNNING, COMPLETED).  SLURM supports the `sacct` command to look at only the users' list of submitted jobs for the day.
+```
+sacct
+       JobID    JobName  Partition    Account  AllocCPUS      State ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- -------- 
+136761            MyJob     matlab ticr-user+          1    RUNNING      0:0
+136762           MyJob2       defq ticr-user+          1  COMPLETED      0:0 
+136762.batch      batch            ticr-user+          1  COMPLETED      0:0 
+```
+The `JobID` is important for canceling or checking the status of a submitted job that has not yet been completed.  The `JobName` will match what the user has submitted in the header section of the batch script, while `Parition` specifies which queue the job was submitted.  If a queue was specified within the batch script, the job is automatically sent to `defq`.  `Account` lets the user know which group/speedtype the charges are being billed.  `AllocCPUS` shows the user how many CPUs were requested for the job.  Similar information can be found by also using the `squeue -u <your_username>`.  This will show the user jobs that are PENDING in the queue or are RUNNING in the queue but not jobs that have been completed.  
 
+To check the status overall queue in Rosalind you can use the `squeue` command.  This will give you all the the jobs on Rosalind that are either RUNNING or PENDING depending on resource availability.
+```
+squeue
+JOBID 	PARTITION     NAME       USER 	ST           TIME  NODES NODELIST(REASON)  
+136763	     defq  funProj    smithab  RUNNING	  10:12:01      1 cubipmcmp001		
+136764	     defq  newProj    smithab  RUNNING	  12:24:52      5 cubipmcmp001 
+136765	   bigmem  largePr    johnsxz  RUNNING	 1-4:18:38      1 cubipmbigmem01
+136766	   bigmem  largePr    johnsxz  RUNNING	 1-5:32:27      1 cubipmbigmem02
+136766	   bigmem  largePr    johnsxz  PENDING	 	        1 (RESOURCES)
+```
+
+Finally, a user may be interested in the statistics of a particular job that is running.  The `sstat <your_JobID>` command can be used to give the user an idea of the resources being used on a __running__ job. For some general statistics on a job that has __already been completed__ one can use the following command:
+```
+sacct -j <your_jobid> --format=JobID,JobName,MaxRSS,Elapsed
+```
 
 <div class="paragraph"><p><br>
 <br></p></div>  
 
 ## Cancelling Submitted Jobs
 
+There are instaces when a user may want to cancel a submitted job currently PENDING or RUNNING in the job queue.  This can be done with the `scancel <your_JobID>` command.  If a user would like to cancel __all__ jobs they have submitted to the queue, the `-u` argument can be added like so:
+```
+scancel -u <your_username>
+```
+Additionally, a user can choose to cancel a job by the name they specified in the batch script. For example:
+```
+scancel --name <your_JobName>
+```
+It should be noted, that job cancellation can only be executed by the user who has submitted the job.
 
 
 <div class="paragraph"><p><br>
@@ -86,3 +120,4 @@ The `$USER` field can remain exactly as is (literally $USER), but change the myG
 <br></p></div>  
 
 ## Estimating HPC Usage (Rosalind-Specific command)
+A user may be interested in how many compute hours they have used during the current billing cycle (from the 1st-30/31st).  This can be estimated by calling `estimate-usage` on the command-prompt.  It will list the estimated number of compute hours used by that user.  If a user belongs to more than one group on Rosalind, it will list the number of compute hours billed to each group by that user.
