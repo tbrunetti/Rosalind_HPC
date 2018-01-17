@@ -6,8 +6,9 @@ Rosalind has many of the widely used programming/scripting languages and tools a
 These language can be used similarly to how one would use them on their local device.  They are globally available to all users anywhere they may navigate within their group(s) on Rosalind.
 1.  Java
 2.  C/C++
-3.  Awk
-4.  Sed
+3.  Perl
+4.  Awk
+5.  Sed
 
 ## Module Loads
 These languages are availabe for use after the user has called `module load` followed by the module they would like to install.  To load a particular version of one these language, please check `module avail` to find the full module name. Using `module load python` defaults to version 2.7 and using `module load R` default to version 3.4 
