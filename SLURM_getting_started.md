@@ -15,7 +15,15 @@ To load a module you can use module load like so:
 ```
 module load python
 ```
-This will load the Python programming language into your environment.  The `load` command can be followed by any of the available module names listed using `module avail`.
+This will load the Python programming language into your environment.  The `load` command can be followed by any of the available module names listed using `module avail`.  
+
+Be aware, that there are some libraries that exist that have multiple versions available.  It is good practice to always `purge` your environment each time you compile new software and re-load the modules you would like.  For example, there may be some libraries in R that require v3.4 but will not work on v3.3.  If a user already has a module loaded, it may default to a version of R they may not want and therefore, the program will fail because of incorrect versioning within their environment.  Please `purge` and `load` to prevent such errors!
+```
+module purge
+module load slurm
+module load <my module>
+```
+
 
 <div class="paragraph"><p><br>
 <br></p></div>  
@@ -55,7 +63,7 @@ And then you must call the executable program on the command prompt to initiate 
 ```
 Now you are running an interactive SAS session.  Keep in mind, when you are finished, you must exit twice for MATLAB and SAS interactive sessions.  For more information and detailed instructions about running SAS and MATLAB interactively please visit the [Nodes and Queues wiki here](https://github.com/tbrunetti/Rosalind_HPC/blob/master/Nodes_and_Queues.md) 
 
-__Interactive Sessions for Users who are Members of Muliple Groups__  
+__Interactive Sessions for Users who are Members of Multiple Groups__  
 If a user is a member of multiple groups on Rosalind, srun must also be run with the `--account` argument so it is clear which speedtype needs to be charged for time consumed.  If this argument is left off, the `srun` command will fail and the user not be able to run an interactive session. Here is an example of how to request an interactive session if the user is part of more than one group:
 ```
 srun --account myGroupName-$USER --time=60 -p defq -n1 --pty  python
