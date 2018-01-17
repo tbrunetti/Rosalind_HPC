@@ -17,7 +17,7 @@ module load python
 ```
 This will load the Python programming language into your environment.  The `load` command can be followed by any of the available module names listed using `module avail`.  
 
-Be aware, that there are some libraries that exist that have multiple versions available.  It is good practice to always `purge` your environment each time you compile new software and re-load the modules you would like.  For example, there may be some libraries in R that require v3.4 but will not work on v3.3.  If a user already has a module loaded, it may default to a version of R they may not want and therefore, the program will fail because of incorrect versioning within their environment.  Please `purge` and `load` to prevent such errors!
+Be aware, that there are some libraries that exist that have multiple versions available.  It is good practice to always `purge` your environment each time you compile new software and re-load the modules you would like after loading `slurm`.  For example, there may be some libraries in R that require v3.4 but will not work on v3.3.  If a user already has a R module pre-loaded, it may default to a version of R they may not want and therefore, the program will fail because of incorrect versioning within their environment.  Please `purge` and `load` to prevent such errors!
 ```
 module purge
 module load slurm
@@ -83,7 +83,7 @@ sacct
 136762           MyJob2       defq ticr-user+          1  COMPLETED      0:0 
 136762.batch      batch            ticr-user+          1  COMPLETED      0:0 
 ```
-The `JobID` is important for canceling or checking the status of a submitted job that has not yet been completed.  The `JobName` will match what the user has submitted in the header section of the batch script, while `Parition` specifies which queue the job was submitted.  If a queue was specified within the batch script, the job is automatically sent to `defq`.  `Account` lets the user know which group/speedtype the charges are being billed.  `AllocCPUS` shows the user how many CPUs were requested for the job.  Similar information can be found by also using the `squeue -u <your_username>`.  This will show the user jobs that are PENDING in the queue or are RUNNING in the queue but not jobs that have been completed.  
+The `JobID` is important for canceling or checking the status of a submitted job that has not yet been completed.  The `JobName` will match what the user has submitted in the header section of the batch script, while `Parition` specifies which queue the job was submitted.  If a queue is not specified within the batch script, the job is automatically sent to `defq`.  `Account` lets the user know which group/speedtype the charges are being billed.  `AllocCPUS` shows the user how many CPUs were requested for the job.  Similar information can be found by also using the `squeue -u <your_username>`.  This will show the user jobs that are PENDING in the queue or are RUNNING in the queue but not jobs that have been completed.  
 
 To check the status overall queue in Rosalind you can use the `squeue` command.  This will give you all the the jobs on Rosalind that are either RUNNING or PENDING depending on resource availability.
 ```
