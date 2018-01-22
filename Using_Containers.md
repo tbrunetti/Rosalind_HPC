@@ -2,7 +2,14 @@
 
 What is a container?
 
+
 Why use a container?
+
+There are many reasons why someone may want to use a container:
+1.  Ensure results are reproducible between and users and systems
+2.  Version control of software
+3.  Install and pre-compile OS and Software of your choosing without having to have root/administrative access to install software globally on the host system
+
 
 <div class="paragraph"><p><br>
 <br></p></div>
@@ -15,11 +22,39 @@ One of the largest differences between Singularity and Docker is that the permis
 2.  This also means, that once a user has "activated" or are using his/her container a user cannot change the privileges within the container to exceed the privileges the user has on the host system.  
 3.  Any changes to the container image (i.e. updating code within the image)  *must* be performed on a local computer where the user has root access.
 
+The good news is singularity is compatible with Docker images so a user can still use a Docker image within the context of Singularity.
 
 <div class="paragraph"><p><br>
 <br></p></div>
 
 ## Singularity
+
+**It is important to know, that _each_ run call you make to the singularity container image is independent of any other calls.  i.e. if you run the container image, it does not carry over or save variables and inputs to the next time you call that same container.**
+
+
+
+### Instructions for building a a new custom singularity container [WORK IN PROGRESS]
+As mentioned above, in order to write and permanently modify the contents of a container, one must build the container on a system where the user has root access.
+
+
+
+### Running a Singularity Container Image on Rosalind [WORK IN PROGRESS]
+
+**1.  Cleaning your environment**
+If the container has software that conflicts with software currently loaded within your HPC enviroment, please purge and load the required modules first to ensure the proper version of software in the container is being utilized.
+```
+module purge
+module load slurm/16.05.8
+```
+Next, load the proper singularity module:
+```
+module load singularity/2.4.2c
+```
+All of the singularity commands should now be available for use on Rosalind.  If you would like to submit a singularity run command via the queue/sbatch script please make sure you include all three of the previous commands above within your sbatch script.  
+
+**2.  Binding/Mounting your Container**
+
+**3.  Executing scripts within your container**
 
 
 <div class="paragraph"><p><br>
