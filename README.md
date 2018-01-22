@@ -16,5 +16,5 @@
     * This is particularly important if you are planning on using SAS, MATLAB, or have scripts/programs that require a lot (> 100GB) of RAM or long run times (> 36 hours)
 6.  [Software Installs](https://github.com/tbrunetti/Rosalind_HPC/blob/master/Software_Availability_on_Rosalind.md)
     *  [Scripting and Programming Languages](https://github.com/tbrunetti/Rosalind_HPC/blob/master/Software_Availability_on_Rosalind.md)
-    *  [Using Containers (Docker, Singularity)][]
+    *  [Using Containers -- Singularity and Docker](https://github.com/tbrunetti/Rosalind_HPC/blob/master/Using_Containers.md)
 7.  [FAQs](https://github.com/tbrunetti/Rosalind_HPC/blob/master/FAQs.md)
