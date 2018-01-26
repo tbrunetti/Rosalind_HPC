@@ -1,7 +1,5 @@
 # Using Containers on Rosalind
 
-What is a container?
-
 
 Why use a container?
 
@@ -9,6 +7,7 @@ There are many reasons why someone may want to use a container:
 1.  Ensure results are reproducible between and users and systems
 2.  Version control of software
 3.  Install and pre-compile OS and Software of your choosing without having to have root/administrative access to install software globally on the host system
+4.  Containers are mobile and portable between systems and users
 
 
 <div class="paragraph"><p><br>
@@ -33,14 +32,16 @@ The good news is singularity is compatible with Docker images so a user can stil
 
 
 
-### Instructions for building a a new custom singularity container [WORK IN PROGRESS]
+### Instructions for building a new custom singularity container
 As mentioned above, in order to write and permanently modify the contents of a container, one must build the container on a system where the user has root access.
 
+We have written an introductory tutorial of building custom Singularity containers and running them on Rosalind.  For new Singularity users, we urge you to [downoad the PDF here](https://github.com/tbrunetti/Rosalind_HPC/blob/master/supplemental_PDFs/using_singularity.pdf) and read through it.
 
 
-### Running a Singularity Container Image on Rosalind [WORK IN PROGRESS]
 
-**1.  Cleaning your environment**
+### Running a Singularity Container Image on Rosalind
+
+**1.  Cleaning your environment**  
 If the container has software that conflicts with software currently loaded within your HPC enviroment, please purge and load the required modules first to ensure the proper version of software in the container is being utilized.
 ```
 module purge
@@ -52,10 +53,13 @@ module load singularity/2.4.2c
 ```
 All of the singularity commands should now be available for use on Rosalind.  If you would like to submit a singularity run command via the queue/sbatch script please make sure you include all three of the previous commands above within your sbatch script.  
 
-**2.  Binding/Mounting your Container**
+**2.  Binding/Mounting your Container**  
 
-**3.  Executing scripts within your container**
+For documnetation please dowload and read through the PDF we have written [here](https://github.com/tbrunetti/Rosalind_HPC/blob/master/supplemental_PDFs/using_singularity.pdf)
 
+**3.  Executing scripts within your container**  
+
+For documnetation please dowload and read through the PDF we have written [here](https://github.com/tbrunetti/Rosalind_HPC/blob/master/supplemental_PDFs/using_singularity.pdf)
 
 <div class="paragraph"><p><br>
 <br></p></div>
