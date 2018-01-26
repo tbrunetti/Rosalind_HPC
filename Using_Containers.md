@@ -35,7 +35,7 @@ The good news is singularity is compatible with Docker images so a user can stil
 ### Instructions for building a new custom singularity container
 As mentioned above, in order to write and permanently modify the contents of a container, one must build the container on a system where the user has root access.
 
-We have written an introductory tutorial of building custom Singularity containers and running them on Rosalind.  For new Singularity users, we urge you to [downoad the PDF here](https://github.com/tbrunetti/Rosalind_HPC/blob/master/supplemental_PDFs/using_singularity.pdf) and read through it.
+We have written an introductory tutorial of building custom Singularity containers and running them on Rosalind.  For new Singularity users, we urge you to [download the PDF here](https://github.com/tbrunetti/Rosalind_HPC/blob/master/supplemental_PDFs/using_singularity.pdf) and read through it.
 
 
 
