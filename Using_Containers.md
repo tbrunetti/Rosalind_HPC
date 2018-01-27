@@ -49,9 +49,9 @@ module load slurm/16.05.8
 ```
 Next, load the proper singularity module:
 ```
-module load singularity/2.4.2c
+module load singularity
 ```
-All of the singularity commands should now be available for use on Rosalind.  If you would like to submit a singularity run command via the queue/sbatch script please make sure you include all three of the previous commands above within your sbatch script.  
+The above command should load the lateset patched Singularity module on Rosalind by default.  However, the user should load the version of Singularity that matches the version the container image was built.  All of the singularity commands should now be available for use on Rosalind.  If you would like to submit a singularity run command via the queue/sbatch script please make sure you include all three of the previous commands above within your sbatch script.  
 
 **2.  Binding/Mounting your Container**  
 
