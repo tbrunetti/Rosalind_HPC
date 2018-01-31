@@ -96,7 +96,7 @@ JOBID 	PARTITION     NAME       USER 	ST           TIME  NODES NODELIST(REASON)
 136766	   bigmem  largePr    johnsxz  PENDING	 	        1 (RESOURCES)
 ```
 
-Finally, a user may be interested in the statistics of a particular job that is running.  The `sstat <your_JobID>` command can be used to give the user an idea of the resources being used on a __running__ job. For some general statistics on a job that has __already been completed__ one can use the following command:
+Finally, a user may be interested in the statistics of a particular job that is running.  The `sstat <your_JobID>` command can be used to give the user an idea of the resources being used on a __running__ job. This only works for jobs submitted using the `srun` command.  To check the stats of a __currently running__ job submitted using `sbatch` use the following command `sstat <your_JobID>.batch`.  The `.batch` extension is critical for all jobs submitted as a batch script. For some general statistics on a job that has __already been completed__ one can use the following command:
 ```
 sacct -j <your_jobid> --format=JobID,JobName,MaxRSS,Elapsed
 ```
