@@ -30,7 +30,7 @@ module load <my module>
 
 ## Submitting A Batch Script
 
-In order for SLURM to submit and schedule your job for processing, it requires special formatting of some headers in your shell script to indicate how the job should be processed.
+In order for SLURM to submit and schedule your job for processing, it requires special formatting of some headers in your shell script to indicate how the job should be processed. For more information please [click here](https://github.com/tbrunetti/Rosalind_HPC/blob/master/rosalind-getting-started.md#running-jobs)
 
 <div class="paragraph"><p><br>
 <br></p></div>  
